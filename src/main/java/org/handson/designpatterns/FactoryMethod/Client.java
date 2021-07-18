@@ -1,26 +1,30 @@
 package org.handson.designpatterns.FactoryMethod;
 
+import org.handson.designpatterns.FactoryMethod.factories.AdjacencyListFactory;
+import org.handson.designpatterns.FactoryMethod.factories.AdjacencyMatrixFactory;
+import org.handson.designpatterns.FactoryMethod.factories.GraphRepresentationFactory;
+import org.handson.designpatterns.FactoryMethod.models.GraphRepresentation;
+
 import java.io.IOException;
 
 public class Client {
 
+    public static void printGraphRepresentation(GraphRepresentationFactory factory) {
+        GraphRepresentation graph = null;
+        try {
+            graph = factory.getGraphRepresentation("src/main/java/org/handson/designpatterns/FactoryMethod/GraphInput");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        graph.printGraph();
+    }
+
     public static void main(String[] args) {
-        GraphRepresentationFactory factory1 = new AdjacencyMatrixFactory();
-        GraphRepresentationFactory factory2 = new AdjacencyListFactory();
-        GraphRepresentation graph1 = null, graph2 = null;
-        try {
-            graph1 = factory1.getGraphRepresentation("src/main/java/org/handson/designpatterns/FactoryMethod/GraphInput");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        graph1.printGraph();
-
-        try {
-            graph2 = factory2.getGraphRepresentation("src/main/java/org/handson/designpatterns/FactoryMethod/GraphInput");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        graph2.printGraph();
-
+        /*
+        Here just by passing different concrete Factory classes, we can create different objects.
+        */
+        GraphRepresentationFactory factory = new AdjacencyMatrixFactory();
+        printGraphRepresentation(new AdjacencyListFactory());
+        printGraphRepresentation(new AdjacencyMatrixFactory());
     }
 }

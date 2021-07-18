@@ -1,4 +1,4 @@
-package org.handson.designpatterns.FactoryMethod;
+package org.handson.designpatterns.FactoryMethod.models;
 
 import java.io.IOException;
 import java.nio.file.Files;

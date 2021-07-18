@@ -1,4 +1,7 @@
-package org.handson.designpatterns.FactoryMethod;
+package org.handson.designpatterns.FactoryMethod.factories;
+
+import org.handson.designpatterns.FactoryMethod.models.AdjacencyMatrix;
+import org.handson.designpatterns.FactoryMethod.models.GraphRepresentation;
 
 import java.io.IOException;
 

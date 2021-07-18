@@ -1,4 +1,4 @@
-package org.handson.designpatterns.FactoryMethod;
+package org.handson.designpatterns.FactoryMethod.models;
 
 public abstract class GraphRepresentation {
 
